@@ -19,12 +19,12 @@ public class HibernateUtil {
             // Create the SessionFactory from hibernate.cfg.xml
             /*new Configuration().configure().buildSessionFactory(
 			    new StandardServiceRegistryBuilder().build() );*/
-        	Configuration configuration = new Configuration();
-        	configuration.configure("hibernate.cfg.xml");
-        	ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-        	        .applySettings(configuration.getProperties()).build();
-        	return configuration
-        	        .buildSessionFactory(serviceRegistry);
+//        	Configuration configuration = new Configuration();
+//        	configuration.configure("hibernate.cfg.xml");
+//        	ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+//        	        .applySettings(configuration.getProperties()).build();
+//        	return configuration
+//        	        .buildSessionFactory(serviceRegistry);
         }
         catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed

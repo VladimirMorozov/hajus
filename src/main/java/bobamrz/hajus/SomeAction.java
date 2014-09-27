@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import bobamrz.hajus.domain.Event;
 import bobamrz.hajus.domain.Person;
+import bobamrz.hajus.service.SomeService;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
@@ -30,19 +31,18 @@ public class SomeAction extends ActionSupport
     
 	@Override
 	public String execute() throws Exception {
-		try {
-			HibernateUtil.doNothing();
+		//try {
 			EventManager manager = new EventManager();
-			long eventId = manager.createAndStoreEvent("My event", new Date());
-			long personId = manager.createAndStorePerson("James", 50);
-			manager.addPersonToEvent(personId, eventId);
-			events = manager.listEvents();
+			long eventId = someService.createAndStoreEvent("My event", new Date());
+			long personId = someService.createAndStorePerson("James", 50);
+			someService.addPersonToEvent(personId, eventId);
+			events = someService.listEvents();
 			//persons = manager.listPersons();
-			persons = manager.listPersonsWithEvents();
+			persons = someService.listPersonsWithEvents();
 			
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			LOG.error("bad", e);
-		}
+		}*/
 		
 		
 		
